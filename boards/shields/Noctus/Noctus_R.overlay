@@ -16,7 +16,6 @@
             ;
 };
 
-//Trackpad
 &pinctrl {
     spi0_default: spi0_default {
         group1 {
@@ -25,6 +24,7 @@
                     <NRF_PSEL(SPIM_MISO, 1, 5)>;
         };
     };
+
     spi0_sleep: spi0_sleep {
         group1 {
             psels = <NRF_PSEL(SPIM_SCK, 1, 3)>,
@@ -35,38 +35,28 @@
     };
 };
 
-//Trackpad
-&glidepoint_listener_L {
+&trackball_listener_L {
     status = "okay";
 };
 
-&qspi {
-	status = "disabled";
+&trackball_listener_R {
+    status = "okay";
+    device = <&trackball_R>;
 };
 
 &spi0 {
     status = "okay";
-    compatible = "nordic,nrf-spim";
+    cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
     pinctrl-0 = <&spi0_default>;
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
+    compatible = "nordic,nrf-spim";
 
-    glidepoint_R: glidepoint_R@0 {
+    trackball_R: trackball_R@0 {
         status = "okay";
-        compatible = "cirque,pinnacle";
+        compatible = "pixart,paw3222";
         reg = <0>;
-        spi-max-frequency = <1000000>;
-        dr-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH)>;
-        y-invert;
-        rotate-90;
-
-        sensitivity = "2x";
-        no-taps;
+        spi-max-frequency = <2000000>;
+        irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
-};
-
-&glidepoint_listener_R {
-    status = "okay";
-    device = <&glidepoint_R>;
 };

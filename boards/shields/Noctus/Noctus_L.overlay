@@ -12,16 +12,16 @@
             ;
 };
 
-//Trackpad
 &pinctrl {
-    spi0_default: spi0_default {
+    spi1_default: spi1_default {
         group1 {
             psels = <NRF_PSEL(SPIM_SCK, 1, 3)>,
                     <NRF_PSEL(SPIM_MOSI, 1, 7)>,
                     <NRF_PSEL(SPIM_MISO, 1, 5)>;
         };
     };
-    spi0_sleep: spi0_sleep {
+
+    spi1_sleep: spi1_sleep {
         group1 {
             psels = <NRF_PSEL(SPIM_SCK, 1, 3)>,
                     <NRF_PSEL(SPIM_MOSI, 1, 7)>,
@@ -31,32 +31,23 @@
     };
 };
 
-&qspi {
-	status = "disabled";
+&trackball_split_L {
+    device = <&trackball_L>;
 };
 
-&spi0 {
+&spi1 {
     status = "okay";
     compatible = "nordic,nrf-spim";
-    pinctrl-0 = <&spi0_default>;
-    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-0 = <&spi1_default>;
+    pinctrl-1 = <&spi1_sleep>;
     pinctrl-names = "default", "sleep";
     cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
 
-    glidepoint_L: glidepoint_L@0 {
+    trackball_L: trackball_L@0 {
         status = "okay";
-        compatible = "cirque,pinnacle";
+        compatible = "pixart,paw3222";
         reg = <0>;
-        spi-max-frequency = <1000000>;
-        dr-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH)>;
-        y-invert;
-        rotate-90;
-
-        sensitivity = "2x";
-        no-taps;
+        spi-max-frequency = <2000000>;
+        irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
-};
-
-&glidepoint_split_L {
-    device = <&glidepoint_L>;
 };
