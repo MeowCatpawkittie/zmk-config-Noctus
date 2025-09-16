@@ -39,8 +39,6 @@
         //input-processors = <&zip_xy_scaler 3 2>;    
     };
     
-
-
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
