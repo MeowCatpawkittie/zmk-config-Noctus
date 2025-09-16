@@ -43,6 +43,7 @@
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
         diode-direction = "col2row";
+        wakeup-source;
             row-gpios
                 = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, 
                   <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, 
@@ -113,4 +114,50 @@
             , <&key_physical_attrs 100 100 1525  400       0     0     0>
             ;
     };
+};
+
+&xiao_serial { status = "okay"; };
+
+&pinctrl {    
+    spi0_default: spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 1, 3)>,
+                    <NRF_PSEL(SPIM_MOSI, 1, 7)>,
+                    <NRF_PSEL(SPIM_MISO, 1, 6)>;
+        };
+    };
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 1, 3)>,
+                    <NRF_PSEL(SPIM_MOSI, 1, 7)>,
+                    <NRF_PSEL(SPIM_MISO, 1, 5)>;
+            low-power-enable;
+        };
+    };
+  };
+
+&spi0 {
+    status = "disabled";
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
+
+    glidepoint_L: glidepoint_L@0 {
+        status = "okay";
+        compatible = "cirque,pinnacle";
+        reg = <0>;
+        spi-max-frequency = <1000000>;
+        dr-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH)>;
+        y-invert;
+        rotate-90;
+
+        sensitivity = "2x";
+        no-taps;
+    };
+};
+
+&qspi {
+	status = "disabled";
 };

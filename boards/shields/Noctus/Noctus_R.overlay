@@ -19,31 +19,7 @@
     status = "okay";
 };
 
-&qspi {
-	status = "disabled";
-};
-
-&xiao_spi {
-    status = "okay";
-    cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
-
-    glidepoint_R: glidepoint_R@0 {
-        status = "okay";
-        compatible = "cirque,pinnacle";
-        reg = <0>;
-        spi-max-frequency = <1000000>;
-        dr-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH)>;
-        y-invert;
-        rotate-90;
-
-        sensitivity = "2x";
-        no-taps;
-    };
-};
-
 &glidepoint_listener_R {
     status = "okay";
     device = <&glidepoint_R>;
 };
-
-&xiao_serial { status = "okay"; };
