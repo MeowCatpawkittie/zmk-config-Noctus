@@ -22,7 +22,6 @@
 
 &spi0 {
     status = "okay";
-    compatible = "nordic,nrf-spim";
     cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
 
     glidepoint_R: glidepoint_R@0 {

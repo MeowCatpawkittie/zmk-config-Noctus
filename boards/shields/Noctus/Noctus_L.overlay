@@ -13,7 +13,6 @@
 //Trackpad
 &spi0 {
     status = "okay";
-    compatible = "nordic,nrf-spim";
     cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
 
     glidepoint_L: glidepoint_L@0 {
