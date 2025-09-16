@@ -35,7 +35,7 @@
     glidepoint_listener_R: glidepoint_listener_R {
       compatible = "zmk,input-listener";
       status = "disabled";
-
+      device = <&glidepoint_R>;
         //input-processors = <&zip_xy_scaler 3 2>;    
     };
 
