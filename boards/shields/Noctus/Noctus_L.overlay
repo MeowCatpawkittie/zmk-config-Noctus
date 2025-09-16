@@ -31,7 +31,7 @@
     };
 };
 
-&xiao_spi {
+&spi0 {
     status = "okay";
     compatible = "nordic,nrf-spim";
     pinctrl-0 = <&spi0_default>;
@@ -53,11 +53,6 @@
     };
 };
 
-&split_inputs {
-    status = "okay";
-};
-
 &glidepoint_split_L {
-    status = "okay";
     device = <&glidepoint_L>;
 };
