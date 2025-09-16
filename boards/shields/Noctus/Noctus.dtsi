@@ -25,8 +25,7 @@ split_inputs {
       compatible = "zmk,input-listener";
       status = "disabled";
       device = <&trackball_split_L>;
-
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_SWAP_XY | INPUT_TRANSFORM_Y_INVERT)>,
                            <&zip_xy_scaler 1 16>,
                            <&zip_scroll_scaler 1 5>,
                            <&zip_xy_to_scroll_mapper>;
@@ -34,8 +33,10 @@ split_inputs {
 
     trackball_listener_R: trackball_listener_R {
       compatible = "zmk,input-listener";
-      status = "disabled";    
+      status = "disabled";
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_SWAP_XY | INPUT_TRANSFORM_X_INVERT)>;
     };
+
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
