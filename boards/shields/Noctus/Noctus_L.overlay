@@ -11,7 +11,11 @@
 };
 
 //Trackpad
-&xiao_spi {
+&qspi {
+	status = "disabled";
+};
+
+&xiao_spi1 {
     status = "okay";
     cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
 
@@ -35,6 +39,3 @@
 
 &xiao_serial { status = "okay"; };
 
-&qspi {
-	status = "disabled";
-};

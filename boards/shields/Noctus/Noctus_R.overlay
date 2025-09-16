@@ -19,8 +19,11 @@
     status = "okay";
 };
 
+&qspi {
+	status = "disabled";
+};
 
-&xiao_spi {
+&xiao_spi0 {
     status = "okay";
     cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
 
@@ -44,7 +47,3 @@
 };
 
 &xiao_serial { status = "okay"; };
-
-&qspi {
-	status = "disabled";
-};
