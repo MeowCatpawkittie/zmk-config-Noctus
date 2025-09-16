@@ -6,11 +6,17 @@ manifest:
       url-base: https://github.com/MeowCatpawkittie
     - name: caksoylar
       url-base: https://github.com/caksoylar
+    - name: petejohanson
+      url-base: https://github.com/petejohanson
+
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
+    - name: cirque-input-module
+      remote: petejohanson
+      revision: main
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: main
