@@ -33,7 +33,7 @@
     device = <&glidepoint_L>;
 };
 
-//&xiao_serial { status = "okay"; };
+&xiao_serial { status = "okay"; };
 
 &qspi {
 	status = "disabled";
