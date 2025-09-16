@@ -1,5 +1,0 @@
-config SHIELD_NOCTUS_R
-    def_bool $(shields_list_contains,Noctus_R)
-
-config SHIELD_NOCTUS_L
-    def_bool $(shields_list_contains,Noctus_L)
