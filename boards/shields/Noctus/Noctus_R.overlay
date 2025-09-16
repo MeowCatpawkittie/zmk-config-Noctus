@@ -15,25 +15,6 @@
 };
 
 //Trackpad
-&pinctrl {
-    spi0_default: spi0_default {
-        group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 1, 3)>,
-                    <NRF_PSEL(SPIM_MOSI, 1, 7)>,
-                    <NRF_PSEL(SPIM_MISO, 1, 5)>;
-        };
-    };
-
-    spi0_sleep: spi0_sleep {
-        group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 1, 3)>,
-                    <NRF_PSEL(SPIM_MOSI, 1, 7)>,
-                    <NRF_PSEL(SPIM_MISO, 1, 5)>;
-            low-power-enable;
-        };
-    };
-};
-
 &glidepoint_listener_L {
     status = "okay";
 };
@@ -42,9 +23,6 @@
 &spi0 {
     status = "okay";
     compatible = "nordic,nrf-spim";
-    pinctrl-0 = <&spi0_default>;
-    pinctrl-1 = <&spi0_sleep>;
-    pinctrl-names = "default", "sleep";
     cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
 
     glidepoint_R: glidepoint_R@0 {
