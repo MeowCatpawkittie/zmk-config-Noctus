@@ -10,39 +10,10 @@
         zmk,physical-layout = &default_layout;
     };
 
-    //trackpad settings  
-    split_inputs {
-      #address-cells = <1>;
-      #size-cells = <0>;
-
-      glidepoint_split_L: glidepoint_split_L@0 {
-        compatible = "zmk,input-split";
-        reg = <0>;
-      };
-    };
-
-    glidepoint_listener_L: glidepoint_listener_L {
-      compatible = "zmk,input-listener";
-      status = "disabled";
-      device = <&glidepoint_split_L>;
-
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
-                           <&zip_xy_scaler 1 16>,
-                           <&zip_scroll_scaler 1 5>,
-                           <&zip_xy_to_scroll_mapper>;
-    };
-
-    glidepoint_listener_R: glidepoint_listener_R {
-      compatible = "zmk,input-listener";
-      status = "disabled";
-
-        //input-processors = <&zip_xy_scaler 3 2>;    
-    };
-
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
-        diode-direction = "row2col";
+        diode-direction = "col2row";
             row-gpios
                 = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, 
                   <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, 
@@ -62,8 +33,6 @@
             RC(3,0) RC(3,1)                 RC(3,2) RC(3,3) RC(3,4)    RC(3,6) RC(3,7) RC(3,8)                 RC(3,9) RC(3,10)
         >;
     };
-
-
 
     default_layout: default_layout {
         compatible = "zmk,physical-layout";
