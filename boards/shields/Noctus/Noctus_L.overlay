@@ -54,6 +54,8 @@
 
         sensitivity = "2x";
         no-taps;
+        no-smoothing;
+
     };
 };
 
