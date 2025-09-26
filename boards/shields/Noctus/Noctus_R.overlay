@@ -61,7 +61,7 @@
         y-invert;
         rotate-90;
 
-        sensitivity = "3x";
+        sensitivity = "2x";
         no-taps;
         no-smoothing;
     };
