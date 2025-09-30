@@ -15,7 +15,7 @@ manifest:
       import: app/west.yml
     - name: cirque-input-module
       remote: petejohanson
-      revision: feat/idle-waker-wake-from-sleep-fixes
+      revision: main
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: main
