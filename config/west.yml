@@ -8,16 +8,16 @@ manifest:
       url-base: https://github.com/caksoylar
     - name: petejohanson
       url-base: https://github.com/petejohanson
-    - name: juniorz
-      url-base: https://github.com/juniorz
+    - name: derui
+      url-base: https://github.com/derui
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
     - name: cirque-input-module
-      remote: juniorz
-      revision: extras
+      remote: derui
+      revision: main
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: main
