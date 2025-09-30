@@ -8,16 +8,16 @@ manifest:
       url-base: https://github.com/caksoylar
     - name: petejohanson
       url-base: https://github.com/petejohanson
-    - name: m42e
-      url-base: https://github.com/m42e
+    - name: juniorz
+      url-base: https://github.com/juniorz
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
     - name: cirque-input-module
-      remote: m42e
-      revision: main
+      remote: uniorz
+      revision: extras
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: main
