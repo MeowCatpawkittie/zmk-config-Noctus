@@ -17,7 +17,7 @@ manifest:
       import: app/west.yml
     - name: cirque-input-module
       remote: derui
-      revision: main
+      revision: fix/rounding-start-whole-edge
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: main
