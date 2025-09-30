@@ -8,16 +8,14 @@ manifest:
       url-base: https://github.com/caksoylar
     - name: petejohanson
       url-base: https://github.com/petejohanson
-    - name: derui
-      url-base: https://github.com/derui
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
     - name: cirque-input-module
-      remote: derui
-      revision: fix/rounding-start-whole-edge
+      remote: petejohanson
+      revision: fetch-data-in-interrupt
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: main
