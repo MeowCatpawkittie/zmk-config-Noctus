@@ -41,7 +41,8 @@
     pinctrl-0 = <&spi1_default>;
     pinctrl-1 = <&spi1_sleep>;
     pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
+    cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>,
+               <&gpio0 13 (GPIO_PULL_UP)>;
 
     glidepoint_L: glidepoint_L@0 {
         status = "okay";
