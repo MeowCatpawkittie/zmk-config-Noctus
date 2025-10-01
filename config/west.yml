@@ -14,7 +14,7 @@ manifest:
       revision: main
       import: app/west.yml
     - name: cirque-input-module
-      remote: MeowCatpawkittie
+      remote: petejohnason
       revision: main
     - name: zmk-rgbled-widget
       remote: caksoylar
