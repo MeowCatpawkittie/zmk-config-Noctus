@@ -59,4 +59,4 @@
 
 &glidepoint_split_L {
     device = <&glidepoint_L>;
-};
+}; 
