@@ -51,6 +51,7 @@
         rotate-90;
 
         sensitivity = "2x";
+        sleep;
         no-taps;
 
     };

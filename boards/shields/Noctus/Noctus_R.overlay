@@ -51,7 +51,7 @@
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
     cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
-    
+
     glidepoint_R: glidepoint_R@0 {
         status = "okay";
         compatible = "cirque,pinnacle";
@@ -61,6 +61,7 @@
         rotate-90;
 
         sensitivity = "2x";
+        sleep;
         no-taps;
     };
 };
