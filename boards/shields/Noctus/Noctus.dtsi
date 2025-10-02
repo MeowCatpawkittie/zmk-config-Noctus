@@ -10,33 +10,55 @@
         zmk,physical-layout = &default_layout;
     };
 
-//trackpad settings  
-    split_inputs {
-      #address-cells = <1>;
-      #size-cells = <0>;
+split_inputs_R {
+        #address-cells = <1>;
+        #size-cells = <0>;
 
-      glidepoint_split_L: glidepoint_split_L@0 {
-        compatible = "zmk,input-split";
-        reg = <0>;
-      };
+        glidepoint_split_R: glidepoint_split_R@0 {
+            compatible = "zmk,input-split";
+            reg = <0>;
+        };
     };
+    split_inputs_L {
+        #address-cells = <1>;
+        #size-cells = <0>;
 
-    glidepoint_listener_L: glidepoint_listener_L {
-      compatible = "zmk,input-listener";
-      status = "disabled";
-      device = <&glidepoint_split_L>;
-
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
-                           <&zip_xy_scaler 1 16>,
-                           <&zip_scroll_scaler 1 5>,
-                           <&zip_xy_to_scroll_mapper>;
+        glidepoint_split_L: glidepoint_split_L@1 {
+            compatible = "zmk,input-split";
+            reg = <1>;
+        };
     };
 
     glidepoint_listener_R: glidepoint_listener_R {
-      compatible = "zmk,input-listener";
-      status = "disabled";
+        compatible = "zmk,input-listener";
+        status = "disabled";
+        device = <&glidepoint_split_R>;
+    };
+    glidepoint_listener_L: glidepoint_listener_L {
+        compatible = "zmk,input-listener";
+        status = "disabled";
+        device = <&glidepoint_split_L>;
+    };
+};
 
-        //input-processors = <&zip_xy_scaler 3 2>;    
+// SPI
+&qspi {
+	status = "disabled";
+};
+
+&xiao_spi {
+    status = "okay";
+    cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
+    
+    glidepoint: glidepoint@1 {
+        compatible = "cirque,pinnacle";
+        status = "okay";
+        reg = <1>;
+        spi-max-frequency = <1000000>;
+        dr-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH)>;
+
+        sensitivity = "2x";
+        no-taps;
     };
     
     kscan0: kscan {
