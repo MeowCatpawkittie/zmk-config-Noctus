@@ -48,7 +48,7 @@ split_inputs_R {
 
 &xiao_spi {
     status = "okay";
-    cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
+    cs-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>, <&gpio0 31 GPIO_ACTIVE_HIGH>;
     
     glidepoint: glidepoint@1 {
         compatible = "cirque,pinnacle";
