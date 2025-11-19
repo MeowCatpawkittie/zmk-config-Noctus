@@ -35,6 +35,8 @@ split_inputs {
     trackball_listener_R: trackball_listener_R {
       compatible = "zmk,input-listener";
       status = "disabled";
+        input-processors =
+            <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAPT)>;
     };
 
     kscan0: kscan {
