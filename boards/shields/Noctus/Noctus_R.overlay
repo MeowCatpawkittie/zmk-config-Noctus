@@ -35,7 +35,7 @@
     };
 };
 
-&trackball_listener_L {
+&glidepoint_split_L {
     status = "okay";
 };
 
