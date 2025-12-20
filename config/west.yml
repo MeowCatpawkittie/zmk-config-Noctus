@@ -19,7 +19,7 @@ manifest:
       remote: petejohanson
     - name: zmk-driver-paw3222
       remote: sekigon-gonnoc
-      revision: main
+      revision: v0.3
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: main
