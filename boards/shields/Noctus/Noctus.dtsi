@@ -36,12 +36,11 @@
                            <&zip_scroll_scaler 1 5>;
     };
 
-    glidepoint_listener_R: glidepoint_listener_R {
+    trackball_listener_R: trackball_listener_R {
       compatible = "zmk,input-listener";
       status = "disabled";
-
-        input-processors = //<&zip_xy_scaler 3 2>, 
-                             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>;
+        input-processors =
+            <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>;
                              
       scroller {
         layers = <1>;
