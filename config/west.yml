@@ -17,9 +17,10 @@ manifest:
       import: app/west.yml
     - name: cirque-input-module
       remote: petejohanson
+      revision: main
     - name: zmk-driver-paw3222
       remote: sekigon-gonnoc
-      revision: v0.3
+      revision: main
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: main
