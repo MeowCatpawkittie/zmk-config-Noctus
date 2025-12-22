@@ -20,5 +20,8 @@ manifest:
     - name: zmk-input-processor-report-rate-limit
       remote: badjeff
       revision: main
+    - name: zmk-input-processor-xyz
+      remote: badjeff
+      revision: main
   self:
     path: config
