@@ -17,7 +17,7 @@ manifest:
       remote: petejohanson
       revision: main
     - name: zmk-rgbled-widget
-      remote: caksoylar
+      remote: MeowCatpawkittie
       revision: main
   self:
     path: config
